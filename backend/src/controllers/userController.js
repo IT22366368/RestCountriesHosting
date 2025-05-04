@@ -9,9 +9,10 @@ const TOKEN_CONFIG = {
 // Cookie configuration for better maintainability
 const COOKIE_CONFIG = {
   httpOnly: true,
-  secure: process.env.NODE_ENV !== 'development',
-  sameSite: 'strict',
-  maxAge: 60 * 60 * 1000 // 1 hour in milliseconds (matching token expiry)
+  secure: true,
+  sameSite: 'none',
+  path: '/',
+  maxAge: 60 * 60 * 1000,
 };
 
 // @desc    Register a new user
@@ -83,6 +84,9 @@ const loginUser = async (req, res) => {
 const logoutUser = async (req, res) => {
   res.cookie('token', '', {
     httpOnly: true,
+    secure: true,
+    sameSite: 'none',
+    path: '/',
     expires: new Date(0)
   });
   
