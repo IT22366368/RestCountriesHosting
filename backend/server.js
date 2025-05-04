@@ -47,7 +47,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import userRoutes from './routes/userRoutes.js';
+import userRoutes from './src/routes/userRoutes.js';
 
 dotenv.config();
 
