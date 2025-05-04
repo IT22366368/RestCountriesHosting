@@ -57,8 +57,7 @@ const app = express();
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production'
     ? [
-        'https://your-frontend.vercel.app',
-        'https://www.yourdomain.com'
+        'https://rest-countries-hosting-1286.vercel.app',
       ]
     : 'http://localhost:3000',
   credentials: true,
