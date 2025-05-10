@@ -6,7 +6,7 @@ import axios from 'axios';
 const API_URL = 
   
   (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_BASE_URL) ||
-  'https://rest-countries-hosting-1286.vercel.app';
+  'https://rest-countries-hosting.vercel.app/api';
 
 // Create an axios instance with custom configuration
 const instance = axios.create({
