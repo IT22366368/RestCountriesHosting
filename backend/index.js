@@ -55,11 +55,10 @@ const app = express();
 
 // Enhanced CORS configuration
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production'
-    ? [
-        'https://rest-countries-hosting-1286.vercel.app',
-      ]
-    : 'http://localhost:3000',
+  origin: [
+    'https://rest-countries-hosting-1286.vercel.app'
+  ],
+
   credentials: true,
   optionsSuccessStatus: 200
 };
@@ -95,7 +94,7 @@ app.use('/api/users', userRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ 
+  res.status(200).json({
     status: 'healthy',
     timestamp: new Date().toISOString()
   });
@@ -104,11 +103,11 @@ app.get('/api/health', (req, res) => {
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ 
-    success: false, 
+  res.status(500).json({
+    success: false,
     message: process.env.NODE_ENV === 'production'
       ? 'Internal server error'
-      : err.message 
+      : err.message
   });
 });
 
